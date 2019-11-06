@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Restaurant.destroy_all
+
+count = 0
+5.times do
+  count += 1
+  restaurant = Restaurant.new(
+    name: "Restaurant #{count}",
+    address: "Copenhagen #{count}",
+    phone_number: "000 000 000#{count}",
+    category: %w[chinese italian japanese french belgian].sample
+  )
+  restaurant.save
+end
